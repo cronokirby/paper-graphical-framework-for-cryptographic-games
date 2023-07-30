@@ -26,6 +26,11 @@
     #v(-0.5em)
   ]
 
+  show list: it => {
+    it
+    v(-0.5em)
+  }
+
   show heading: it => {
     v(0.2em)
     it 
@@ -66,12 +71,18 @@
 }
 
 
-#let definition(content) = {
+#let definition(break_end: true, title: none, content) = {
   defc.step(level: 2)
-  text(weight: "bold")[Definition #defc.display()]
+  if title != none {
+    text(weight: "bold")[Definition #defc.display(): #title]
+  } else {
+    text(weight: "bold")[Definition #defc.display()]
+  }
   linebreak()
   content
-  linebreak()
+  if break_end {
+    linebreak()
+  }
   [$square.stroked.medium$]
   parbreak()
 }
