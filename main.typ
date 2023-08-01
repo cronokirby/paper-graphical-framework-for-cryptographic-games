@@ -21,13 +21,19 @@
 
 #definition(break_end: false, title: [Stacks])[
 A _stack_ $S$ consists of:
-- two disjoint sets (of names): $I$, and $O$,
-- a bijection $phi : [n] arrow.l.r I union.sq O$,
+- a set $O subset.eq [n]$,
 - types $T_1, ..., T_n$,
 - types $bullet = sigma_1, sigma_2, ..., sigma_(n + 1) = nothing$,
-- functions $f_1, ..., f_n$, each of which is
-  - of type $f_i : sigma_i times T_i arrow.r sigma_(i + 1)$, when $phi(i) in I$,
-  - and of type $f_i : sigma_i arrow.r sigma_(i + 1) times T_i$ when $phi(i) in O$.
+- functions $f_1, ..., f_n$, each of which is:
+  - of type $f_i : sigma_i arrow.r sigma_(i + 1) times T_i$ when $i in O$,
+  - of type $f_i : sigma_i times T_i arrow.r sigma_(i + 1)$, when $i in.not O$.
+]
+
+#definition(break_end: false, title: [Games])[
+A _game_ $G$ consists of:
+- a list of stacks $S_1, ..., S_m$,
+- a set $W$,
+- a function $phi : union.sq.big_(i in [m])[n_i]#footnote[By this, we mean that the domain of $phi$ is the _disjoint_ union of the individual index sets.] arrow.r W$ whose restriction to the set $union.sq.big_(i in [m]) O_i$ is injective.
 ]
 
 == Diagrams
