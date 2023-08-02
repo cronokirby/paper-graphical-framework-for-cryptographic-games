@@ -33,7 +33,13 @@ A _stack_ $S$ consists of:
 A _game_ $G$ consists of:
 - a list of stacks $S_1, ..., S_m$,
 - a set $W$,
-- a function $phi : union.sq.big_(i in [m])[n_i]#footnote[By this, we mean that the domain of $phi$ is the _disjoint_ union of the individual index sets.] arrow.r W$ whose restriction to the set $union.sq.big_(i in [m]) O_i$ is injective.
+- a function $phi : union.sq.big_(i in [m])[n_i]#footnote[By this, we mean that the domain of $phi$ is the _disjoint_ union of the individual index sets.] arrow.r W^quest$ whose restriction to $union.sq.big_(i in [m]) O_i arrow.r W$ is injective.
+]
+
+#definition(title: [Literal Game Equality])[
+Two games $A, B$ are said to be _literally equal_, written $A ident B$,
+when $m_A = m_B$, and there exist bijections $pi : [m] arrow.l.r [m]$
+and $psi : W_A arrow.l.r W_B$ such that $phi_(A)(i, x) = psi(phi_(B)(pi(i), x))$#footnote[Implicitly, $psi(bot) := bot$ here.].
 ]
 
 == Diagrams
