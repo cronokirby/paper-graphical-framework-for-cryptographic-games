@@ -20,6 +20,9 @@
     it
   }
 
+  show math.equation.where(block: false): it => text(font: "Stix Two Math")[
+    #it
+  ]
   show math.equation.where(block: true): it => text(font: "Stix Two Math")[
     #v(-0.25em)
     #it

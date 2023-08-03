@@ -15,8 +15,8 @@
 
 = Introduction
 == Outline
-= An Informal Framework
-= A Formal Framework
+= An Abstract Theory
+= A Concrete Model
 == Stacks
 
 #definition(break_end: false, title: [Stacks])[
@@ -37,9 +37,22 @@ A _game_ $G$ consists of:
 ]
 
 #definition(title: [Literal Game Equality])[
-Two games $A, B$ are said to be _literally equal_, written $A ident B$,
+Two games $A, B$ are said to be _literally equal_, written $A eq.triple B$,
 when $m_A = m_B$, and there exist bijections $pi : [m] arrow.l.r [m]$
 and $psi : W_A arrow.l.r W_B$ such that $phi_(A)(i, x) = psi(phi_(B)(pi(i), x))$#footnote[Implicitly, $psi(bot) := bot$ here.].
+]
+
+#definition(break_end: false, title: [Game Composition])[
+Given two games $A$, $B$, and an equivalence relation $tilde$ on $W_A union.sq W_B$,
+such that $x = y$ implies $(i, x) tilde (i, y)$,
+and that
+$
+exists.not x in union.sq.big_i O_(A,i), y in union.sq.big_i O_(B, i). space (0, phi(x)) tilde (1, phi(y))
+$, we can define their composition
+(relative to this relation) $A diamond.medium_(tilde) B$ as a game consisting of:
+- the stacks $S_(A,1), ..., S_(A,m_A), S_(B,1), ..., S_(B,m_B)$,
+- the wire set $(W_A union.sq W_B) slash tilde$,
+- the function $ display(phi(i, x) := cases(phi_(A)(i, x) space "if" i lt.eq m_A, phi_(B)(i - m_A, x) space "if" i > m_A)) $.
 ]
 
 == Diagrams
